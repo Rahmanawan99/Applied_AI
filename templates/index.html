@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied AI | Pro Attendance System</title>
+    <style>
+        :root {
+            --primary: #10b981;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            background-color: var(--card);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            max-width: 1200px;
+            width: 90%;
+        }
+
+        .main-view {
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 1px solid #334155;
+            position: relative;
+        }
+
+        .video-feed {
+            width: 100%;
+            border-radius: 0.5rem;
+            display: block;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid #334155;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            font-size: 1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .instruction {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: #064e3b;
+            color: #34d399;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>APPLIED AI | PRO ATTENDANCE</h1>
+    </div>
+
+    <div class="container">
+        <div class="main-view">
+            <img src="/video_feed" class="video-feed" alt="Live Stream">
+            <div style="position: absolute; top: 20px; right: 20px;">
+                <span class="status-badge">SYSTEM ACTIVE</span>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="info-card">
+                <h3>Instructions</h3>
+                <p class="instruction">
+                    1. Face the camera directly.<br>
+                    2. Ensure your face is within the frame.<br>
+                    3. <strong>Blink naturally</strong> to trigger the liveness check.<br>
+                    4. Wait for the yellow "Attendance Marked" signal.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>System Status</h3>
+                <p class="instruction">
+                    GPU: NVIDIA RTX 3050<br>
+                    Model: FaceNet + SVM<br>
+                    Liveness: MediaPipe Mesh
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

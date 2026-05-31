@@ -1,0 +1,15 @@
+facenet-pytorch
+opencv-python
+opencv-contrib-python
+torch
+torchvision
+torchaudio
+matplotlib
+scikit-learn
+joblib
+flask
+pillow
+numpy<2.0.0
+scipy
+pandas
+mediapipe==0.10.11
