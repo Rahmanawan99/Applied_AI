@@ -13,7 +13,7 @@ output_dir ='test_cropped'
 if not os .path .exists (output_dir ):
     os .makedirs (output_dir )
 
-print (f"Starting face cropping in '{test_dir }' using {device }...")
+print (f"'{test_dir }' using {device }...")
 
 count =0 
 for filename in os .listdir (test_dir ):
@@ -50,4 +50,3 @@ for filename in os .listdir (test_dir ):
         except Exception as e :
             print (f"Error processing {filename }: {e }")
 
-print (f"\n✅ Done! Successfully cropped {count } faces into '{output_dir }'.")

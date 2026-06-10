@@ -13,7 +13,7 @@ from attendance import mark_attendance
 
 
 device ='cuda'if torch .cuda .is_available ()else 'cpu'
-print (f"Server starting on: {device }")
+print (f"Server stating on: {device }")
 
 mtcnn =MTCNN (image_size =160 ,margin =20 ,device =device )
 resnet =InceptionResnetV1 (pretrained ='vggface2').eval ().to (device )

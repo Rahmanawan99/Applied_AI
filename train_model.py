@@ -118,7 +118,6 @@ for prob in y_prob :
     y_pred .append (prediction )
     print (f"Prediction: {prediction } | Confidence: {confidence :.2f}")
 
-print ("\n=== CLASSIFICATION REPORT ===")
 
 
 print (classification_report (y_test ,y_pred ))

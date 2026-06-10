@@ -10,7 +10,7 @@ from facenet_pytorch import InceptionResnetV1 ,MTCNN
 from sklearn .metrics import confusion_matrix ,classification_report 
 
 device ='cuda'if torch .cuda .is_available ()else 'cpu'
-print ("Analysis Mode: Using device",device )
+print ("Using device",device )
 
 mtcnn =MTCNN (image_size =160 ,margin =20 ,device =device )
 resnet =InceptionResnetV1 (pretrained ='vggface2').eval ().to (device )
@@ -21,7 +21,7 @@ results =[]
 y_pred =[]
 confidences =[]
 
-print ("\n--- ANALYZING TEST DATASET ---")
+
 
 for image_name in os .listdir (test_folder ):
     if not image_name .lower ().endswith (('.png','.jpg','.jpeg')):continue 
@@ -58,7 +58,7 @@ for image_name in os .listdir (test_folder ):
 with open ("test_results_report.txt","w")as f :
     f .write ("\n".join (results ))
 
-print ("\n--- GENERATING CHARTS ---")
+
 plt .style .use ('dark_background')
 
 plt .figure (figsize =(10 ,6 ))
@@ -77,5 +77,3 @@ plt .title ("Total Identification Counts")
 plt .ylabel ("Number of Images")
 plt .savefig ("report_prediction_counts.png")
 
-print ("\n✅ Report Generated!")
-print ("Files saved: test_results_report.txt, report_confidence_dist.png, report_prediction_counts.png")

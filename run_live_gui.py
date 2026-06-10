@@ -17,7 +17,7 @@ print (f"Using device: {device }")
 
 mtcnn =MTCNN (image_size =160 ,margin =20 ,device =device )
 resnet =InceptionResnetV1 (pretrained ='vggface2').eval ().to (device )
-
+#debug
 try :
     model =joblib .load ("models/face_classifier.pkl")
     print ("Model loaded successfully.")
@@ -96,7 +96,6 @@ def draw_charts (ear_hist ,conf_hist ):
 cap =cv2 .VideoCapture (0 )
 attendance_alert_timer =0 
 
-print ("Starting Advanced GUI... Press 'q' to quit.")
 
 while True :
     success ,frame =cap .read ()
