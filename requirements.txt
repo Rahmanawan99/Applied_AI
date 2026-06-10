@@ -13,3 +13,5 @@ numpy<2.0.0
 scipy
 pandas
 mediapipe==0.10.11
+
+MOST IMPORTANTLY PYTHON VENV 3.10

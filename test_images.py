@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from PIL import Image
 from facenet_pytorch import InceptionResnetV1, MTCNN
+from sklearn.metrics import confusion_matrix, classification_report
 
 # Device
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -17,7 +18,7 @@ mtcnn = MTCNN(image_size=160, margin=20, device=device)
 resnet = InceptionResnetV1(pretrained='vggface2').eval().to(device)
 model = joblib.load("models/face_classifier.pkl")
 
-test_folder = "test"
+test_folder = "test_cropped"
 results = []
 y_pred = []
 confidences = []
@@ -83,6 +84,17 @@ plt.bar(unique_preds, counts, color='#10b981')
 plt.title("Total Identification Counts")
 plt.ylabel("Number of Images")
 plt.savefig("report_prediction_counts.png")
+
+# # 2. Confusion Matrix
+# labels = sorted(list(set(y_true) | set(y_pred)))
+# cm = confusion_matrix(y_true, y_pred, labels=labels)
+# plt.figure(figsize=(8, 6))
+# sns.heatmap(cm, annot=True, fmt='d', xticklabels=labels, yticklabels=labels, cmap='Greens')
+# plt.title("Confusion Matrix: Actual vs Predicted")
+# plt.xlabel("Predicted")
+# plt.ylabel("Actual")
+# plt.savefig("report_confusion_matrix.png")
+
 
 print("\n✅ Report Generated!")
 print("Files saved: test_results_report.txt, report_confidence_dist.png, report_prediction_counts.png")
